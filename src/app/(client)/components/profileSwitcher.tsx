@@ -20,7 +20,7 @@ export default function ProfileSwitcher({
     .toUpperCase();
 
   return (
-    <div className="flex gap-1 items-center">
+    <div className="flex gap-1 items-center hidden lg:flex">
       <div className="flex gap-1 items-center">
         <Avatar>
           <AvatarImage src={avatarUrl} alt={name} />

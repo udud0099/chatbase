@@ -115,7 +115,7 @@
 @theme {
   --color-primary: #222222;
   --color-secondary: #858585;
-  --color-action: #CDF87E;
+  --color-action: #cdf87e;
   --color-action_hover: #38c9b8;
 }
 
@@ -126,4 +126,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+   
+  .mainH1 {
+    @apply font-semibold text-lg md:text-xl lg:text-2xl;
+  }
+  
 }

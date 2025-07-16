@@ -113,7 +113,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full py-3 px-4 flex justify-between items-center border-b border-gray-100 bg-white">
+    <nav className="w-full py-3 px-4 flex justify-between items-center   bg-white">
       {/* Left: Logo + Navigation */}
       <div className="flex gap-8 items-center">
         <Link href="/admin/dashboard">
@@ -126,7 +126,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 hidden  lg:flex">
           {navItems.map((item: NavItem, index: number) => (
             <Link
               href={item.url}
@@ -139,7 +139,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-center ">
         <Link
           href="/my-agents/create"
           className="px-3 py-2 border border-gray-200 rounded-md bg-gray-50 hover:bg-gray-100 text-[14px]"
