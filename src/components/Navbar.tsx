@@ -27,13 +27,13 @@ export default function Navbar() {
       label: (
         <MdOutlineContactEmergency className="text-4xl group-hover:bg-action rounded p-2 text-[#292D32]" />
       ),
-      url: "/Contacts",
+      url: "/",
     },
     {
       label: (
         <IoChatboxOutline className="text-4xl group-hover:bg-action rounded p-2 text-[#292D32]" />
       ),
-      url: "/Messages",
+      url: "/",
     },
     {
       label: (
