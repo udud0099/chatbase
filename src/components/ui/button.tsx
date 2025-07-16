@@ -21,7 +21,9 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         signIn:
-          "px-3 py-2 rounded bg-[#004DFB] text-white text-center w-full cursor-pointer",
+          "px-3 py-2 rounded-lg bg-[#004DFB] text-white text-center w-full cursor-pointer",
+        navButton:
+          "border border-[#E2E8F0] rounded-lg px-4 py-1 bg-[#F8FAFC] text-[#1E293B] cursor-pointer",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
