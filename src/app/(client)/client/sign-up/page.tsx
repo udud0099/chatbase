@@ -8,7 +8,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function signUp() {
+export default function SignUp() {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   return (

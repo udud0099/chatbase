@@ -1,4 +1,5 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,11 +7,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { useState } from "react";
 import Link from "next/link";
 
-export default function signIn() {
-  const [show, setShow] = useState(false);
+export default function SignIn() {
+  const [showw, setShoww] = useState(false);
   return (
     <>
       <div className="p-[20px] h-screen w-screen  ">
@@ -48,16 +48,16 @@ export default function signIn() {
                   Password
                 </Label>
                 <Input
-                  type={show ? "text" : "password"}
+                  type={showw ? "text" : "password"}
                   id="password"
                   placeholder="Your Password"
                 />
                 <button
                   type="button"
-                  onClick={() => setShow(!show)}
+                  onClick={() => setShoww(!showw)}
                   className="absolute right-2 top-11 -translate-y-1/2 text-muted-foreground  cursor-pointer"
                 >
-                  {show ? (
+                  {showw ? (
                     <FiEyeOff className="h-5 w-5" />
                   ) : (
                     <FiEye className="h-5 w-5" />
