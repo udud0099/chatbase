@@ -113,10 +113,8 @@
 }
 
 @theme {
-  --color-primary: #222222;
-  --color-secondary: #858585;
-  --color-action: #cdf87e;
-  --color-action_hover: #38c9b8;
+  --color-primary: #1e293b;
+  --color-border: #e2e8f0;
 }
 
 @layer base {
@@ -129,9 +127,10 @@
 }
 
 @layer components {
-   
   .mainH1 {
     @apply font-semibold text-lg md:text-xl lg:text-2xl;
   }
-  
+  .mainH2 {
+    @apply font-semibold text-sm   lg:text-base;
+  }
 }

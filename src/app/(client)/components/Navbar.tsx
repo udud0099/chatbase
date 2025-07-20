@@ -84,9 +84,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import ProfileSwitcher from "./profileSwitcher";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Dashboard", url: "/dashboard" },
@@ -102,6 +103,7 @@ type NavItem = {
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const getLinkClasses = (url: string) => {
     const isActive = pathname === url;
@@ -140,12 +142,12 @@ const Navbar = () => {
       </div>
 
       <div className="flex gap-3 items-center ">
-        <Link
-          href="/my-agents/create"
-          className="px-3 py-2 border border-gray-200 rounded-md bg-gray-50 hover:bg-gray-100 text-[14px]"
+        <Button
+          variant="navButton"
+          onClick={() => router.push("/my-agents/create")}
         >
           Create New Agent
-        </Link>
+        </Button>
 
         <ProfileSwitcher
           name="Fab Senchuri"
