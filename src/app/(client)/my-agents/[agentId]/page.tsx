@@ -15,7 +15,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Switch } from "@/components/ui/switch";
 import { FaRegEdit } from "react-icons/fa";
+import { Textarea } from "@/components/ui/textarea";
 import DeleteAgent from "./components/DeleteAgent";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function AgentPage() {
   return (
@@ -68,12 +78,49 @@ export default function AgentPage() {
               <TabsContent value="Playground">
                 <Card>
                   <CardContent className="grid gap-6">
-                    <div className="grid gap-3">
-                      <div className="p-2 flex flex-col justify-between items-stretch   ">
-                        <div className="">
-                          <h1 className="mainH2">Playground</h1>
+                    <div className="flex flex-col md:flex-row gap-4">
+                      <div className="flex flex-col gap-y-4 flex-1">
+                        <div className="grid w-full  items-center gap-3">
+                          <Label
+                            htmlFor="Title"
+                            className="text-subText text-sm"
+                          >
+                            Title
+                          </Label>
+                          <Select>
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select a fruit" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Fruits</SelectLabel>
+                                <SelectItem value="apple">Apple</SelectItem>
+                                <SelectItem value="banana">Banana</SelectItem>
+                                <SelectItem value="blueberry">
+                                  Blueberry
+                                </SelectItem>
+                                <SelectItem value="grapes">Grapes</SelectItem>
+                                <SelectItem value="pineapple">
+                                  Pineapple
+                                </SelectItem>
+                              </SelectGroup>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="grid w-full gap-3">
+                          <Label
+                            htmlFor="Content"
+                            className="text-subText text-sm"
+                          >
+                            Content
+                          </Label>
+                          <Textarea
+                            placeholder="Type your Content here."
+                            id="Content"
+                          />
                         </div>
                       </div>
+                      <div className="flex-1">a</div>
                     </div>
                   </CardContent>
                 </Card>

@@ -8,7 +8,7 @@ export default function SpecialLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="  min-h-screen w-screen ">
+    <section className="      ">
       <Navbar />
       {children}
     </section>
