@@ -1,105 +1,37 @@
 "use client";
+
 import CreditAgentsUsed from "./components/CreditAgentsUsed";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 import { PiDiamondsFourThin } from "react-icons/pi";
 import { IoAddOutline } from "react-icons/io5";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+interface Agent {
+  id: string;
+  title: string;
+  totalNo: number;
+  scoreNo: number;
+  tags: string[];
+}
 
 export default function Page() {
+  const [users, setUsers] = useState<Agent[]>([]);
   const router = useRouter();
-  const agentsData = [
-    {
-      id: 1,
-      title: "Retro Agent",
-      topic: "Credits used",
-      totalNo: 10,
-      scoreNo: 200,
-      tags: ["Files", "Text", "Website", "Q&A"],
-    },
-    {
-      id: 2,
-      title: "Modern Explorer",
-      topic: "Credits remaining",
-      totalNo: 15,
-      scoreNo: 300,
-      tags: ["Images", "Graphic", "Portfolio", "Feedback"],
-    },
-    {
-      id: 3,
-      title: "Classic Innovator",
-      topic: "Credits pending",
-      totalNo: 8,
-      scoreNo: 150,
-      tags: ["Documents", "Illustration", "Blog", "Support"],
-    },
-    {
-      id: 4,
-      title: "Futuristic Creator",
-      topic: "Credits allocated",
-      totalNo: 12,
-      scoreNo: 250,
-      tags: ["Videos", "Animation", "Showcase", "Discussion"],
-    },
-    {
-      id: 5,
-      title: "Urban Designer",
-      topic: "Credits processed",
-      totalNo: 20,
-      scoreNo: 400,
-      tags: ["Presentations", "Layouts", "Profile", "Inquiry"],
-    },
-    {
-      id: 6,
-      title: "Nature Artist",
-      topic: "Credits withdrawn",
-      totalNo: 5,
-      scoreNo: 100,
-      tags: ["Sketches", "Images", "Gallery", "Consultation"],
-    },
-    {
-      id: 7,
-      title: "Digital Artisan",
-      topic: "Credits earned",
-      totalNo: 18,
-      scoreNo: 350,
-      tags: ["Templates", "Vector", "Website", "Evaluation"],
-    },
-    {
-      id: 8,
-      title: "Visual Thinker",
-      topic: "Credits used",
-      totalNo: 22,
-      scoreNo: 275,
-      tags: ["Moodboard", "Style Guide", "Brand", "Icons"],
-    },
-    {
-      id: 9,
-      title: "Code Wizard",
-      topic: "Credits allocated",
-      totalNo: 30,
-      scoreNo: 500,
-      tags: ["Snippets", "Functions", "Hooks", "Components"],
-    },
-    {
-      id: 10,
-      title: "AI Assistant",
-      topic: "Credits processed",
-      totalNo: 17,
-      scoreNo: 220,
-      tags: ["Chat", "Automation", "Logic", "Workflow"],
-    },
-    {
-      id: 11,
-      title: "Pixel Pilot",
-      topic: "Credits earned",
-      totalNo: 9,
-      scoreNo: 120,
-      tags: ["UI", "UX", "Design", "Test"],
-    },
-  ];
+
+  useEffect(() => {
+    async function getUsers() {
+      const res = await fetch("http://localhost:3000/api/agents");
+      const data = await res.json();
+      setUsers(data);
+    }
+    getUsers();
+  }, []);
+
   return (
     <>
-      <div className="border-t border-gray-300 rounded-4xl px-16 py-4">
+      <div className="border-t border-gray-300 rounded-4xl px-4 md:px-8 lg:px-16 py-4 overflow-x-hidden">
         <div className="flex justify-between   gap-4">
           <div className="flex gap-4">
             <CreditAgentsUsed topic="Credit Used" totalNo={20} scoreNO={10} />
@@ -119,16 +51,18 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-4 xl:gap-6">
             <Button
               variant="navButton"
-              className="h-full flex flex-col gap-2 justify-center items-center"
+              className="h-full flex flex-col gap-2 justify-center items-center border-dashed"
               onClick={() => router.push("/my-agents/create")}
             >
               <IoAddOutline className="text-4xl" />
 
               <span>Create</span>
             </Button>
-            {agentsData.map((item) => (
-              <div
+            {users.map((item) => (
+              <Link
+                href={`/my-agents/${item.id}`}
                 key={item.id}
+                target="_blank"
                 className="border border-border p-1 rounded-2xl"
               >
                 <div className="w-full rounded-2xl bg-[#F8FAFC] h-[100px] flex justify-center items-center">
@@ -138,21 +72,25 @@ export default function Page() {
                   <div className="">
                     <h1 className="mainH2">{item.title}</h1>
                     <span className="text-primary text-sm flex gap-0 items-end my-2">
-                      <h1 className="mainH2">{item.totalNo}</h1>/{item.scoreNo}
+                      <h1 className="mainH2">
+                        {" "}
+                        {item.totalNo < 10 ? `0${item.totalNo}` : item.totalNo}
+                      </h1>
+                      /{item.scoreNo}
                     </span>
                   </div>
-                  <div>
+                  <div className="flex gap-1 flex-wrap">
                     {item.tags.map((item2, index) => (
                       <div
                         key={index}
-                        className="px-2 py-1  border border-border inline-block mr-1 mb-1 text-xs rounded-full"
+                        className="px-2 py-1  border border-border inline-block   text-xs rounded-full"
                       >
                         {item2}
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

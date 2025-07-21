@@ -2,75 +2,125 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  CardContent, 
+  CardFooter, 
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function KnowledgeBase() {
   return (
     <>
       <div>
-        <h1>Knowledge Base</h1>
+        <h1 className="mainH2 my-4">Knowledge Base</h1>
         <div>
-          <div className="flex w-full max-w-sm flex-col gap-6">
-            <Tabs defaultValue="account">
+          <div className="flex w-full   flex-col gap-6">
+            <Tabs defaultValue="Files">
               <TabsList>
-                <TabsTrigger value="account">Account</TabsTrigger>
-                <TabsTrigger value="password">Password</TabsTrigger>
+                <TabsTrigger value="Files">Files</TabsTrigger>
+                <TabsTrigger value="Text">Text</TabsTrigger>
+                <TabsTrigger value="Website">Website</TabsTrigger>
+                <TabsTrigger value="Q&A">Q & A</TabsTrigger>
               </TabsList>
-              <TabsContent value="account">
+              <TabsContent value="Files">
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Account</CardTitle>
-                    <CardDescription>
-                      Make changes to your account here. Click save when
-                      you&apos;re done.
-                    </CardDescription>
-                  </CardHeader>
                   <CardContent className="grid gap-6">
-                    <div className="grid gap-3">
-                      <Label htmlFor="tabs-demo-name">Name</Label>
-                      <Input id="tabs-demo-name" defaultValue="Pedro Duarte" />
+                    <div className="py-4 px-6 text-center cursor-pointer">
+                      <h1 className="mainH2">
+                        Drop your files here or{" "}
+                        <span className="text-[#2563EB]">browse</span>
+                      </h1>
+                      <p className="text-primary text-sm">Maximum size: 50MB</p>
                     </div>
-                    <div className="grid gap-3">
-                      <Label htmlFor="tabs-demo-username">Username</Label>
-                      <Input id="tabs-demo-username" defaultValue="@peduarte" />
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="Text">
+                <Card>
+                  <CardContent className="grid gap-6">
+                    <div className="flex flex-col gap-y-4">
+                      <div className="grid w-full  items-center gap-3">
+                        <Label htmlFor="Title" className="text-subText text-sm">
+                          Title
+                        </Label>
+                        <Input type="text" id="Title" placeholder="Title" />
+                      </div>
+                      <div className="grid w-full gap-3">
+                        <Label
+                          htmlFor="Content"
+                          className="text-subText text-sm"
+                        >
+                          Content
+                        </Label>
+                        <Textarea
+                          placeholder="Type your Content here."
+                          id="Content"
+                        />
+                      </div>
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button>Save changes</Button>
+                    <Button>Add Content</Button>
                   </CardFooter>
                 </Card>
               </TabsContent>
-              <TabsContent value="password">
+              <TabsContent value="Website">
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Password</CardTitle>
-                    <CardDescription>
-                      Change your password here. After saving, you&apos;ll be
-                      logged out.
-                    </CardDescription>
-                  </CardHeader>
                   <CardContent className="grid gap-6">
-                    <div className="grid gap-3">
-                      <Label htmlFor="tabs-demo-current">
-                        Current password
-                      </Label>
-                      <Input id="tabs-demo-current" type="password" />
+                    <div className="py-4 px-6 text-center cursor-pointer">
+                      <h1 className="mainH2">
+                        Drop your files here or{" "}
+                        <span className="text-[#2563EB]">browse</span>
+                      </h1>
+                      <p className="text-primary text-sm">Maximum size: 50MB</p>
                     </div>
-                    <div className="grid gap-3">
-                      <Label htmlFor="tabs-demo-new">New password</Label>
-                      <Input id="tabs-demo-new" type="password" />
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="Q&A">
+                <Card>
+                  <CardContent className="grid gap-6">
+                    <div className="flex flex-col gap-y-4">
+                      <div className="grid w-full  items-center gap-3">
+                        <Label htmlFor="Title" className="text-subText text-sm">
+                          Title
+                        </Label>
+                        <Input type="text" id="Title" placeholder="Title" />
+                      </div>
+                      <div className="grid w-full  items-center gap-3">
+                        <Label
+                          htmlFor="Question"
+                          className="text-subText text-sm"
+                        >
+                          Question
+                        </Label>
+                        <Input
+                          type="text"
+                          id="Question"
+                          placeholder="Question"
+                        />
+                      </div>
+                      <div className="grid w-full  items-center gap-3">
+                        <h1 className="mainH2">+ Add another question</h1>
+                      </div>
+                      <div className="grid w-full gap-3">
+                        <Label
+                          htmlFor="Answer"
+                          className="text-subText text-sm"
+                        >
+                          Answer
+                        </Label>
+                        <Textarea
+                          placeholder="Type your Answer here."
+                          id="Answer"
+                        />
+                      </div>
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button>Save password</Button>
+                    <Button>Add QnA</Button>
                   </CardFooter>
                 </Card>
               </TabsContent>
@@ -78,6 +128,7 @@ export default function KnowledgeBase() {
           </div>
         </div>
       </div>
+      {/* <div className="w-full h-screen bg-amber-300"></div> */}
     </>
   );
 }
