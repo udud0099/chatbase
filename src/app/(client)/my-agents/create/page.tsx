@@ -13,7 +13,7 @@ export default function page() {
           <div className="flex-[.3]">
             <div className="w-full bg-gray-300 rounded-xl p-4">
               <h3>overview</h3>
-            <div></div>
+              <div></div>
             </div>
           </div>
         </div>
