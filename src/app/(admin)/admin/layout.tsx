@@ -1,6 +1,6 @@
 // app/special/layout.tsx
 
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 
 export default function SpecialLayout({
   children,
@@ -9,7 +9,7 @@ export default function SpecialLayout({
 }) {
   return (
     <section className="  min-h-screen w-screen ">
-      <Navbar />
+      {/* <Navbar /> */}
       {children}
     </section>
   );
