@@ -129,11 +129,14 @@
 }
 
 @layer components {
+  .topRoundBorder {
+    @apply border-t border-gray-300 rounded-4xl
+  }
   .mainH1 {
     @apply font-semibold text-lg md:text-xl lg:text-2xl;
   }
   .mainH2 {
-    @apply font-semibold text-sm   lg:text-base;
+    @apply font-semibold text-xs   lg:text-sm;
   }
   .mainH3 {
     @apply font-semibold text-xs   lg:text-sm;

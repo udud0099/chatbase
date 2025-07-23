@@ -39,7 +39,7 @@ export default function SideNav() {
         <div className="border border-gray-200 rounded-md   p-1">
           <div className="w-full bg-activeBG p-2 flex justify-between ">
             <div>
-              <h1 className="mainH1">Retro Agent</h1>
+              <h1 className="mainH2 text-lg">Retro Agent</h1>
               <span className="text-primary text-sm flex gap-0 items-end  ">
                 <h1 className="mainH2">10</h1>/200 Credits used
               </span>

@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import ChatBox from "./components/ChatBox";
 export default function page() {
   return (
     <>
@@ -71,11 +72,7 @@ export default function page() {
               </div>
             </div>
             <div className="flex-1">
-              <Textarea
-                placeholder="Type your Content here."
-                id="Content"
-                className="min-h-[500px]"
-              />
+              <ChatBox />
             </div>
           </div>
         </div>

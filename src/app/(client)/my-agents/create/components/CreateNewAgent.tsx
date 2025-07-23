@@ -9,13 +9,13 @@ export default function CreateNewAgent() {
         <h1 className="mainH1 ">Create New Agent</h1>
         <div className="grid w-full  items-center gap-3">
           <Label htmlFor="email" className="text-subText text-sm">
-            Email
+            Agent Name
           </Label>
-          <Input type="email" id="email" placeholder="Email" />
+          <Input type="text" id="agentName" placeholder="e.g. Mural Agent" />
         </div>
         <div className="grid w-full gap-3">
           <Label htmlFor="message" className="text-subText text-sm">
-            Your message
+            Short Description
           </Label>
           <Textarea placeholder="Type your message here." id="message" />
         </div>

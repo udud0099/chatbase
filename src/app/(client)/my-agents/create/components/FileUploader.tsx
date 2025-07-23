@@ -168,7 +168,7 @@ const FileUploader = () => {
           </div>
 
           {/* Action Buttons */}
-          {/* <div className="flex space-x-3 mt-6">
+          <div className="flex space-x-3 mt-6">
             <button
               onClick={() => console.log("Upload files:", files)}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
@@ -181,7 +181,7 @@ const FileUploader = () => {
             >
               Clear All
             </button>
-          </div> */}
+          </div>
         </div>
       )}
     </div>

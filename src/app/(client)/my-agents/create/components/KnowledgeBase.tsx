@@ -12,12 +12,12 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { CiGlobe } from "react-icons/ci";
 import { BsChatLeftQuote } from "react-icons/bs";
+import AddAnotherQues from "./AddAnotherQues";
 
 export default function KnowledgeBase() {
+   
   return (
-    <>
-      <div>
-        <div>
+    <> 
           <div className="flex w-full   flex-col gap-6">
             <Tabs defaultValue="Files">
               <TabsList>
@@ -61,8 +61,8 @@ export default function KnowledgeBase() {
                           id="Content"
                         />
                       </div>
-                      <div className="grid w-full gap-3">
-                        <Button>Add Content </Button>
+                      <div className=" w-full  text-right">
+                        <Button variant="navButton">Add Content </Button>
                       </div>
                     </div>
                     <div>
@@ -105,7 +105,7 @@ export default function KnowledgeBase() {
                   <CardContent className="grid gap-6">
                     <div className="flex flex-col gap-y-4">
                       <div className="grid w-full  items-center gap-3">
-                        <h1 className="mainH1 mb-1">Add Links</h1>
+                        <h1 className="mainH2 mb-1">Add Links</h1>
                         <Label htmlFor="Title" className="text-subText text-sm">
                           URL
                         </Label>
@@ -115,8 +115,8 @@ export default function KnowledgeBase() {
                           placeholder="e.g. www.example.com"
                         />
                       </div>
-                      <div className="grid w-full gap-3">
-                        <Button>Fetch Link</Button>
+                      <div className="  w-full  text-right">
+                        <Button variant="navButton">Fetch Link</Button>
                       </div>
                     </div>
                     <div>
@@ -168,22 +168,7 @@ export default function KnowledgeBase() {
                         </Label>
                         <Input type="text" id="Title" placeholder="Title" />
                       </div>
-                      <div className="grid w-full  items-center gap-3">
-                        <Label
-                          htmlFor="Question"
-                          className="text-subText text-sm"
-                        >
-                          Question
-                        </Label>
-                        <Input
-                          type="text"
-                          id="Question"
-                          placeholder="Question"
-                        />
-                      </div>
-                      <div className="grid w-full  items-center gap-3">
-                        <h1 className="mainH2">+ Add another question</h1>
-                      </div>
+                      <AddAnotherQues />
                       <div className="grid w-full gap-3">
                         <Label
                           htmlFor="Answer"
@@ -196,8 +181,8 @@ export default function KnowledgeBase() {
                           id="Answer"
                         />
                       </div>
-                      <div className="grid w-full gap-3">
-                        <Button>Add QnA</Button>
+                      <div className="  w-full text-right">
+                        <Button variant="navButton">Add QnA</Button>
                       </div>
                     </div>
                     <div>
@@ -239,9 +224,7 @@ export default function KnowledgeBase() {
                 </Card>
               </TabsContent>
             </Tabs>
-          </div>
-        </div>
-      </div>
+          </div> 
       {/* <div className="w-full h-screen bg-amber-300"></div> */}
     </>
   );

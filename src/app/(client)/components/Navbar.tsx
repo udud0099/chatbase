@@ -108,7 +108,7 @@ const Navbar = () => {
   const getLinkClasses = (url: string) => {
     const isActive = pathname === url;
     return `
-      px-4 py-2 text-sm  border border-transparent
+      px-4 py-1.5 text-sm  border border-transparent
       ${isActive ? "bg-[#F8FAFC] border border-[#E2E8F0]! rounded-full" : ""}
       hover:border hover:border-[#E2E8F0] hover:rounded-full hover:bg-[#F8FAFC] 
     `;

@@ -11,6 +11,7 @@ import Link from "next/link";
 interface Agent {
   id: string;
   title: string;
+  topic: string;
   totalNo: number;
   scoreNo: number;
   tags: string[];
@@ -31,7 +32,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="border-t border-gray-300 rounded-4xl px-4 md:px-8 lg:px-16 py-4 overflow-x-hidden">
+      <div className=" px-4 md:px-8 lg:px-16 py-4 overflow-x-hidden">
         <div className="flex justify-between   gap-4">
           <div className="flex gap-4">
             <CreditAgentsUsed topic="Credit Used" totalNo={20} scoreNO={10} />
@@ -71,19 +72,19 @@ export default function Page() {
                 <div className="p-2 flex flex-col justify-between items-stretch   ">
                   <div className="">
                     <h1 className="mainH2">{item.title}</h1>
-                    <span className="text-primary text-sm flex gap-0 items-end my-2">
+                    <span className="text-primary text-xs flex gap-0 items-center my-1">
                       <h1 className="mainH2">
                         {" "}
                         {item.totalNo < 10 ? `0${item.totalNo}` : item.totalNo}
                       </h1>
-                      /{item.scoreNo}
+                      /{item.scoreNo} {item.topic}
                     </span>
                   </div>
-                  <div className="flex gap-1 flex-wrap">
+                  <div className="flex gap-1 flex-wrap mt-2">
                     {item.tags.map((item2, index) => (
                       <div
                         key={index}
-                        className="px-2 py-1  border border-border inline-block   text-xs rounded-full"
+                        className="px-2 py-1  border border-border inline-block  bg-[#F8FAFC]  text-xs rounded-full"
                       >
                         {item2}
                       </div>
