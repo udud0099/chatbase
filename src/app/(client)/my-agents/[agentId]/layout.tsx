@@ -7,7 +7,7 @@ export default function SpecialLayout({
 }) {
   return (
     <section className=" flex gap-8     ">
-      <div className="bg-red-600 w-[300px]">
+      <div className="  w-[400px] block">
         <SideNav />
       </div>
       <div className="    h-full w-full flex justify-center    py-4 md:py-6 xl:py-8">

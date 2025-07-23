@@ -8,7 +8,10 @@ export default function page() {
         <div className="flex gap-4 flex-col md:flex-row">
           <div className="flex-[.7]">
             <CreateNewAgent />
-            <KnowledgeBase />
+            <div>
+              <h1 className="mainH2 my-4">Knowledge Base</h1>
+              <KnowledgeBase />
+            </div>
           </div>
           <div className="flex-[.3]">
             <div className="w-full bg-gray-300 rounded-xl p-4">

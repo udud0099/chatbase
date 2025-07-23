@@ -1,8 +1,10 @@
+import KnowledgeBase from "../../create/components/KnowledgeBase";
+
 export default function page() {
   return (
     <>
       <div>
-        <h1>knowledgebase</h1>
+        <KnowledgeBase />
       </div>
     </>
   );

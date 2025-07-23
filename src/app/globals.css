@@ -116,6 +116,7 @@
   --color-primary: #1e293b;
   --color-subText: #475569;
   --color-border: #e2e8f0;
+  --color-activeBG: #f7fafc;
 }
 
 @layer base {
@@ -133,5 +134,8 @@
   }
   .mainH2 {
     @apply font-semibold text-sm   lg:text-base;
+  }
+  .mainH3 {
+    @apply font-semibold text-xs   lg:text-sm;
   }
 }
