@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
+import FileUploader from "./FileUploader";
 
 export default function KnowledgeBase() {
   return (
@@ -23,13 +24,13 @@ export default function KnowledgeBase() {
               <TabsContent value="Files">
                 <Card>
                   <CardContent className="grid gap-6">
-                    <div className="py-4 px-6 text-center cursor-pointer">
-                      <h1 className="mainH2">
+                    {/* <h1 className="mainH2">
                         Drop your files here or{" "}
                         <span className="text-[#2563EB]">browse</span>
                       </h1>
-                      <p className="text-primary text-sm">Maximum size: 50MB</p>
-                    </div>
+                      <p className="text-primary text-sm">Maximum size: 50MB</p> */}
+
+                    <FileUploader />
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -65,13 +66,7 @@ export default function KnowledgeBase() {
               <TabsContent value="Website">
                 <Card>
                   <CardContent className="grid gap-6">
-                    <div className="py-4 px-6 text-center cursor-pointer">
-                      <h1 className="mainH2">
-                        Drop your files here or{" "}
-                        <span className="text-[#2563EB]">browse</span>
-                      </h1>
-                      <p className="text-primary text-sm">Maximum size: 50MB</p>
-                    </div>
+                    <FileUploader />
                   </CardContent>
                 </Card>
               </TabsContent>
