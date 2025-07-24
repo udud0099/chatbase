@@ -6,7 +6,7 @@ export default function SpecialLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className=" flex gap-8  topRoundBorder   ">
+    <section className=" flex gap-8   topRoundBorder    ">
       <div className="  w-[400px] block">
         <SideNav />
       </div>

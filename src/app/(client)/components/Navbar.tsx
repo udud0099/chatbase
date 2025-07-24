@@ -118,7 +118,7 @@ const Navbar = () => {
     <nav className="w-full py-3 px-4 flex justify-between items-center   bg-white">
       {/* Left: Logo + Navigation */}
       <div className="flex gap-8 items-center">
-        <Link href="/admin/dashboard">
+        <Link href="/dashboard">
           <Image
             src="/images/TriNetraIcon.svg"
             alt="logo"

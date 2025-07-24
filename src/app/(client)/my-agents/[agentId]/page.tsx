@@ -5,10 +5,8 @@ import { FaRegEdit } from "react-icons/fa";
 import DeleteAgent from "./components/DeleteAgent";
 
 export default function AgentPage() {
-  return (
-    <div>
-      <div>
-        <div className="flex justify-between">
+  return ( 
+        <div className="  flex justify-between">
           <div>
             <h1 className="mainH1">Retro Agent</h1>
             <span className="text-primary text-sm flex gap-0 items-end  ">
@@ -38,8 +36,6 @@ export default function AgentPage() {
             <FaRegEdit className="text-xl text-primary" />
             <DeleteAgent />
           </div>
-        </div>
-      </div>
-    </div>
+        </div> 
   );
 }

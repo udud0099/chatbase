@@ -4,7 +4,7 @@ import KnowledgeBase from "./components/KnowledgeBase";
 export default function page() {
   return (
     <>
-      <div className="topRoundBorder">
+      <div className="topRoundBorder ">
         <div className=" max-w-7xl mx-auto py-8 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-28 mt-8">
           <div className="flex gap-4 flex-col md:flex-row">
             <div className="flex-[.7]">

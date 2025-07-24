@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <>
-      <div className=" px-4 md:px-8 lg:px-16 py-4 overflow-x-hidden">
+      <div className="topRoundBorder px-4 md:px-8 lg:px-16 py-4 overflow-x-hidden">
         <div className="flex justify-between   gap-4">
           <div className="flex gap-4">
             <CreditAgentsUsed topic="Credit Used" totalNo={20} scoreNO={10} />

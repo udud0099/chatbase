@@ -1,7 +1,7 @@
 export default function page() {
   return (
     <>
-      <div>
+      <div className="topRoundBorder">
         <h1>marketplace page</h1>
       </div>
     </>
