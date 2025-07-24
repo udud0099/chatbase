@@ -90,7 +90,7 @@ const FileUploader = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 cursor-default">
+    <div className="w-full   cursor-default">
       {/* Upload Area */}
       <div
         className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-all duration-200 overflow-hidden cursor-pointer  ${

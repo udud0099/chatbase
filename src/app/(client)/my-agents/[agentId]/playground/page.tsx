@@ -14,7 +14,7 @@ import ChatBox from "./components/ChatBox";
 export default function page() {
   return (
     <>
-      <div>
+      <div className="">
         <div>
           <h1 className="mainH1 mb-2">Playground</h1>
         </div>

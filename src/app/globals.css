@@ -129,8 +129,11 @@
 }
 
 @layer components {
+  .heightAdg {
+    @apply h-[calc(100vh-80px)]   overflow-auto;
+  }
   .topRoundBorder {
-    @apply border-t border-gray-300 rounded-4xl
+    @apply border-t border-gray-300 rounded-4xl;
   }
   .mainH1 {
     @apply font-semibold text-lg md:text-xl lg:text-2xl;
