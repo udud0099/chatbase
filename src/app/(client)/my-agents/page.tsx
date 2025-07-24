@@ -60,7 +60,7 @@ export default function Page() {
 
               <span>Create</span>
             </Button>
-            {agentsData.map((item: any) => (
+            {agentsData.map((item) => (
               <Link
                 href={`/my-agents/${item.id}`}
                 key={item.id}
@@ -82,7 +82,7 @@ export default function Page() {
                     </span>
                   </div>
                   <div className="flex gap-1 flex-wrap mt-2">
-                    {item.tags.map((item2: any, index: any) => (
+                    {item.tags.map((item2, index) => (
                       <div
                         key={index}
                         className="px-2 py-1  border border-border inline-block  bg-[#F8FAFC]  text-xs rounded-full"
