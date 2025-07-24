@@ -11,15 +11,17 @@ import DeleteAgent from "../../[agentId]/components/DeleteAgent";
 
 export default function AddAnotherQues() {
   const [addQus, setAddQus] = useState<string[]>([""]);
+  const [que, setQue] = useState("");
+  const [anser, setAnser] = useState("");
   const [text, setText] = useState([
     {
-      title: "Title 1",
-      questions: ["addQus1", "addQus2", "addQus3", "addQus4", "addQus5"],
+      question: "Title 1",
+      questions: 5,
       ans: "ansss",
     },
     {
-      title: "Title 2",
-      questions: ["addQus1", "addQus2", "addQus3"],
+      question: "Title 2",
+      questions: 3,
       ans: "ansss",
     },
     // {
@@ -35,9 +37,19 @@ export default function AddAnotherQues() {
     // if (!title) {
     //   return;
     // }
-    setText([{}]);
+    setText([
+      ...text,
+      {
+        question: que,
+        questions: addQus.length,
+        ans: anser,
+      },
+    ]);
     // setTitle("");
-    console.log("ok");
+    setAddQus([""]);
+    setQue("");
+    setAnser("");
+    // document.getElementById("Question").nodeValue = "";
   };
   return (
     <>
@@ -46,7 +58,13 @@ export default function AddAnotherQues() {
           <Label htmlFor="Title" className="text-subText text-sm">
             Title
           </Label>
-          <Input type="text" id="Title" placeholder="Title" />
+          <Input
+            type="text"
+            id="Title"
+            placeholder="Title"
+            value={que}
+            onChange={(e) => setQue(e.target.value)}
+          />
         </div>
         {addQus.map((item, index) => (
           <div className="grid w-full  items-center gap-3" key={index}>
@@ -68,7 +86,12 @@ export default function AddAnotherQues() {
           <Label htmlFor="Answer" className="text-subText text-sm">
             Answer
           </Label>
-          <Textarea placeholder="Type your Answer here." id="Answer" />
+          <Textarea
+            placeholder="Type your Answer here."
+            id="Answer"
+            value={anser}
+            onChange={(e) => setAnser(e.target.value)}
+          />
         </div>
         <div className="  w-full text-right">
           <Button variant="navButton" onClick={addData}>
@@ -95,14 +118,14 @@ export default function AddAnotherQues() {
                   <BsChatLeftQuote className="h-6 w-6 text-gray-600" />
                   <div>
                     <p className="text-sm font-medium text-gray-900 truncate max-w-xs">
-                      {item.title}
+                      {item.question}
                     </p>
-                    <p className="text-xs text-gray-500">
-                      {item.questions.length} Questions{" "}
+                    <div className="text-xs text-gray-500 flex gap-2">
+                      <p>{item.questions} Questions </p>
                       <ul className="inline-block list-inside list-disc ml-2">
                         <li>1 Answer</li>
                       </ul>
-                    </p>
+                    </div>
                   </div>
                 </div>
 
