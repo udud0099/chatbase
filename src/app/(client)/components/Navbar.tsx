@@ -128,7 +128,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="flex gap-2 hidden  lg:flex">
+        <div className="flex gap-0 hidden  lg:flex">
           {navItems.map((item: NavItem, index: number) => (
             <Link
               href={item.url}

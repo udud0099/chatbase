@@ -1,34 +1,35 @@
 "use client";
-
 import CreditAgentsUsed from "./components/CreditAgentsUsed";
 import { Button } from "@/components/ui/button";
 import { PiDiamondsFourThin } from "react-icons/pi";
 import { IoAddOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Link from "next/link";
 
-interface Agent {
-  id: string;
-  title: string;
-  topic: string;
-  totalNo: number;
-  scoreNo: number;
-  tags: string[];
-}
+import { agentsData } from "@/util/db";
+
+// interface Agent {
+//   id: string;
+//   title: string;
+//   topic: string;
+//   totalNo: number;
+//   scoreNo: number;
+//   tags: string[];
+// }
 
 export default function Page() {
-  const [users, setUsers] = useState<Agent[]>([]);
+  // const [users, setUsers] = useState<Agent[]>([]);
   const router = useRouter();
 
-  useEffect(() => {
-    async function getUsers() {
-      const res = await fetch("http://localhost:3000/api/agents");
-      const data = await res.json();
-      setUsers(data);
-    }
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   async function getUsers() {
+  //     const res = await fetch("http://localhost:3000/api/agents");
+  //     const data = await res.json();
+  //     setUsers(data);
+  //   }
+  //   getUsers();
+  // }, []);
 
   return (
     <>
@@ -59,7 +60,7 @@ export default function Page() {
 
               <span>Create</span>
             </Button>
-            {users.map((item) => (
+            {agentsData.map((item: any) => (
               <Link
                 href={`/my-agents/${item.id}`}
                 key={item.id}
@@ -81,7 +82,7 @@ export default function Page() {
                     </span>
                   </div>
                   <div className="flex gap-1 flex-wrap mt-2">
-                    {item.tags.map((item2, index) => (
+                    {item.tags.map((item2: any, index: any) => (
                       <div
                         key={index}
                         className="px-2 py-1  border border-border inline-block  bg-[#F8FAFC]  text-xs rounded-full"
