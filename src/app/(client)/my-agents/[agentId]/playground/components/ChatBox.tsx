@@ -48,7 +48,7 @@ export default function ChatBox() {
     setInput("");
 
     if (pendingStep !== null) {
-      handleBotStep(pendingStep + 1, input);
+      handleBotStep(pendingStep + 1);
     } else {
       // Start bot process
       handleBotStep(0);
