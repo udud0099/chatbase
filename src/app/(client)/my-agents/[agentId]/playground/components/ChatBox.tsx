@@ -22,13 +22,16 @@ export default function ChatBox() {
   const [pendingStep, setPendingStep] = useState<number | null>(null);
   const [projectName, setProjectName] = useState("NextGen Pipeline");
   const chatRef = useRef<HTMLDivElement>(null);
-
+if(false){
+  setProjectName("")
+}
   const scrollToBottom = () => {
     chatRef.current?.scrollTo({
       top: chatRef.current.scrollHeight,
       behavior: "smooth",
     });
   };
+
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -48,7 +51,10 @@ export default function ChatBox() {
     setInput("");
 
     if (pendingStep !== null) {
-      handleBotStep(pendingStep + 1);
+      handleBotStep(pendingStep + 1
+        // , input
+
+      );
     } else {
       // Start bot process
       handleBotStep(0);
@@ -59,7 +65,7 @@ export default function ChatBox() {
     setMessages((prev) => [
       ...prev,
       {
-        senderName: "Future AI",
+        senderName: "ChatGPT AI",
         senderInitials: "FA",
         message: text,
         time: new Date().toLocaleTimeString(),
@@ -67,13 +73,10 @@ export default function ChatBox() {
       },
     ]);
   };
-  // for remove error
-  if (100 < 1) {
-    setProjectName("");
-  }
+
   const handleBotStep = async (
     step: number
-    // userResponse?: string
+    //  userResponse?: string
   ) => {
     setPendingStep(step);
 
@@ -152,10 +155,10 @@ export default function ChatBox() {
                 {messages.map((msg, idx) => (
                   <div
                     key={idx}
-                    className={`    flex gap-2 items-center w-[85%] ${
+                    className={`   border border-[#E2E8F0] flex gap-2 items-center w-[85%] p-2 rounded-md text-[#1E293B] text-sm font-semibold ${
                       msg.isUser
-                        ? "flex-row-reverse bg-emerald-600 text-white  ml-auto "
-                        : "flex-row bg-black/10 text-black/80 "
+                        ? "flex-row-reverse bg-[#D1FAED]    ml-auto "
+                        : "flex-row  bg-white   "
                     }`}
                   >
                     <Avatar>
@@ -172,13 +175,13 @@ export default function ChatBox() {
                       }`}
                     >
                       <div
-                        className={`  text-14    
+                        className={`       
                         }`}
                       >
                         {msg.message}
                       </div>
                       <div
-                        className={`flex items-center gap-2 text-10 text-black/70 ${
+                        className={`flex items-center gap-2 text-[12px] font-normal ${
                           msg.isUser ? "flex-row-reverse" : "flex-row"
                         }`}
                       >
@@ -210,10 +213,10 @@ export default function ChatBox() {
             />
             <RiSendPlaneLine
               className="cursor-pointer"
-              // onSubmit={(e) => {
-              //   e.preventDefault();
-              //   handleSendMessage();
-              // }}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSendMessage();
+              }}
             />
           </div>
         </form>

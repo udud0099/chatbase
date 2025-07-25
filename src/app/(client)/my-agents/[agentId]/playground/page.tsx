@@ -16,7 +16,7 @@ export default function page() {
     <>
       <div className="">
         <div>
-          <h1 className="mainH1 mb-2">Playground</h1>
+          <h1 className="mainH1 mb-4">Playground</h1>
         </div>
         <div className="w-full h-full border border-border rounded-md p-2">
           <div className="flex gap-4 ">
