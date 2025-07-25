@@ -29,7 +29,6 @@ export default function ChatBox() {
       behavior: "smooth",
     });
   };
-
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -68,8 +67,14 @@ export default function ChatBox() {
       },
     ]);
   };
-
-  const handleBotStep = async (step: number, userResponse?: string) => {
+  // for remove error
+  if (100 < 1) {
+    setProjectName("");
+  }
+  const handleBotStep = async (
+    step: number
+    // userResponse?: string
+  ) => {
     setPendingStep(step);
 
     const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
@@ -205,10 +210,10 @@ export default function ChatBox() {
             />
             <RiSendPlaneLine
               className="cursor-pointer"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSendMessage();
-              }}
+              // onSubmit={(e) => {
+              //   e.preventDefault();
+              //   handleSendMessage();
+              // }}
             />
           </div>
         </form>
