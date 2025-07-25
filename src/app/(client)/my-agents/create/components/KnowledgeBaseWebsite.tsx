@@ -2,14 +2,48 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { FaRegEdit } from "react-icons/fa";
-import DeleteAgent from "../../[agentId]/components/DeleteAgent";
 import { IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import { CiGlobe } from "react-icons/ci";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { AiOutlineDelete } from "react-icons/ai";
+
+const formSchema = z.object({
+  URLlist: z.string().min(1, { message: "URL shoud not be empty" }).min(4, {
+    message: "Username must be at least 4 characters.",
+  }),
+});
+
 export default function KnowledgeBaseWebsite() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      URLlist: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const { URLlist } = values;
+
+    console.log(values);
+    setText([...text, { url: URLlist }]);
+
+    form.reset();
+  }
+
   const [text, setText] = useState([
     {
       url: "https://amoebalabs.co",
@@ -18,39 +52,36 @@ export default function KnowledgeBaseWebsite() {
       url: "https://amoebalabs.co",
     },
   ]);
-  // console.log(text, setText);
-
-  const [title, setTitle] = useState("");
-
-  const addData = () => {
-    if (!title) {
-      return;
-    }
-    setText([...text, { url: title }]);
-    setTitle("");
-  };
 
   return (
     <>
       <div className="flex flex-col gap-y-4">
-        <div className="grid w-full  items-center gap-3">
-          <h1 className="mainH2 mb-1">Add Links</h1>
-          <Label htmlFor="Title" className="text-subText text-sm">
-            URL
-          </Label>
-          <Input
-            type="text"
-            id="Title"
-            placeholder="e.g. www.example.com"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className="  w-full  text-right">
-          <Button variant="navButton" onClick={addData}>
-            Fetch Link
-          </Button>
-        </div>
+        <h1 className="mainH2 mb-1">Add Links</h1>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="URLlist"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel htmlFor="Title" className="text-subText text-sm">
+                    URL
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g. www.example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <div className="  w-full  text-right">
+              <Button variant="navButton" type="submit">
+                Fetch Link
+              </Button>
+            </div>
+          </form>
+        </Form>
       </div>
       <div>
         <div className="mt-6">
@@ -82,7 +113,7 @@ export default function KnowledgeBaseWebsite() {
 
                   <div className="flex gap-2 items-center">
                     <FaRegEdit className="text-xl text-primary" />
-                    <DeleteAgent />
+                    <AiOutlineDelete className="text-xl text-[#E11D48] cursor-pointer" />
                     <IoIosArrowForward />
                   </div>
                 </div>

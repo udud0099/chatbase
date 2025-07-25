@@ -2,15 +2,54 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { BsFileEarmarkPlus } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
-import DeleteAgent from "../../[agentId]/components/DeleteAgent";
 import { IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+import { AiOutlineDelete } from "react-icons/ai";
+
+const formSchema = z.object({
+  title: z.string().min(1, { message: "URL shoud not be empty" }).min(4, {
+    message: "Username must be at least 4 characters.",
+  }),
+  des: z.string().min(1, { message: "URL shoud not be empty" }).min(4, {
+    message: "Username must be at least 4 characters.",
+  }),
+});
+
 export default function KnowledgeBaseText() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+      des: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const { title, des } = values;
+
+    console.log(values);
+    setText([...text, { title: title, des: des }]);
+
+    form.reset();
+  }
+
   const [text, setText] = useState([
     {
       title: "Content title 1",
@@ -21,51 +60,47 @@ export default function KnowledgeBaseText() {
       des: "Content Des222 22222",
     },
   ]);
-  console.log(text, setText);
-
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-
-  const addData = () => {
-    if (!title || !desc) {
-      return;
-    }
-    setText([...text, { title: title, des: desc }]);
-    setTitle("");
-    setDesc("");
-  };
 
   return (
     <>
       <div className="flex flex-col gap-y-4">
-        <div className="grid w-full  items-center gap-3">
-          <Label htmlFor="Title" className="text-subText text-sm">
-            Title
-          </Label>
-          <Input
-            type="text"
-            id="Title"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className="grid w-full gap-3">
-          <Label htmlFor="Content" className="text-subText text-sm">
-            Content
-          </Label>
-          <Textarea
-            placeholder="Type your Content here."
-            id="Content"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-          />
-        </div>
-        <div className=" w-full  text-right">
-          <Button variant="navButton" onClick={addData}>
-            Add Content{" "}
-          </Button>
-        </div>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-subText text-sm">Title</FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g. john@doe.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="des"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-subText text-sm">
+                    Content
+                  </FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Enter" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="  w-full  text-right">
+              <Button variant="navButton" type="submit">
+                Add Content
+              </Button>
+            </div>
+          </form>
+        </Form>
       </div>
       <div>
         <div className="mt-6">
@@ -94,7 +129,8 @@ export default function KnowledgeBaseText() {
 
                 <div className="flex gap-2 items-center">
                   <FaRegEdit className="text-xl text-primary" />
-                  <DeleteAgent />
+                  <AiOutlineDelete className="text-xl text-[#E11D48] cursor-pointer" />
+
                   <IoIosArrowForward />
                 </div>
               </div>
