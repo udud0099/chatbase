@@ -64,7 +64,6 @@ export default function Page() {
               <Link
                 href={`/my-agents/${item.id}`}
                 key={item.id}
-                target="_blank"
                 className="border border-border p-1 rounded-2xl"
               >
                 <div className="w-full rounded-2xl bg-[#F8FAFC] h-[100px] flex justify-center items-center">

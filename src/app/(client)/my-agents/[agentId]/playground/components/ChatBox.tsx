@@ -22,9 +22,7 @@ export default function ChatBox() {
   const [pendingStep, setPendingStep] = useState<number | null>(null);
   const [projectName, setProjectName] = useState("NextGen Pipeline");
   const chatRef = useRef<HTMLDivElement>(null);
-if(false){
-  setProjectName("")
-}
+
   const scrollToBottom = () => {
     chatRef.current?.scrollTo({
       top: chatRef.current.scrollHeight,
@@ -53,13 +51,15 @@ if(false){
     if (pendingStep !== null) {
       handleBotStep(pendingStep + 1
         // , input
-
       );
     } else {
       // Start bot process
       handleBotStep(0);
     }
   };
+  if(false){
+    setProjectName("")
+  }
 
   const addBotMessage = (text: string) => {
     setMessages((prev) => [
@@ -140,7 +140,7 @@ if(false){
   };
   return (
     <>
-      <div className="h-[500px] overflow-hidden flex flex-col w-full rounded-md border border-border  bg-[#F8FAFC]">
+      <div className=" h-full overflow-hidden flex flex-col w-full rounded-md border border-border  bg-[#F8FAFC]">
         <div className="py-1 px-4 flex gap-2 justify-between items-center bg-white h-8">
           <h1 className="mainH2">Retro Agent</h1>
           <IoMdRefresh />

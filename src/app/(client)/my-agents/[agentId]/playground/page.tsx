@@ -14,11 +14,11 @@ import ChatBox from "./components/ChatBox";
 export default function page() {
   return (
     <>
-      <div className="">
+      <div className=" h-[calc(100vh-120px)] overflow-hidden   ">
         <div>
           <h1 className="mainH1 mb-4">Playground</h1>
         </div>
-        <div className="w-full h-full border border-border rounded-md p-2">
+        <div className="w-full   h-[calc(100vh-170px)] overflow-y-auto border border-border rounded-md p-2">
           <div className="flex gap-4 ">
             <div className="flex-1">
               <div className="flex gap-2 justify-between items-center mb-4">
@@ -65,7 +65,7 @@ export default function page() {
                     <Textarea
                       placeholder="Type your Content here."
                       id="Content"
-                      className="min-h-[260px]"
+                      className=" h-[calc(100vh-430px)] max-h-[calc(100vh-430px)] overflow-auto"
                     />
                   </div>
                 </div>
