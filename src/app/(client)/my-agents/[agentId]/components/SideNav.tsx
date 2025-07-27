@@ -52,7 +52,7 @@ export default function SideNav() {
           <div>
             <nav className="w-full py-3  flex justify-between      ">
               {/* Left: Logo + Navigation */}
-              <div className="flex flex-col gap-2  w-full  lg:flex">
+              <div className="flex flex-col gap-0.5  w-full  lg:flex">
                 {navItems.map((item: NavItem, index: number) => (
                   <Link
                     href={item.url}

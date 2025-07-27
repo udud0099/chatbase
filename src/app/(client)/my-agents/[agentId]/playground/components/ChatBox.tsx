@@ -148,15 +148,15 @@ export default function ChatBox() {
         </div>
         <div className="flex-1 p-2">
           <div className=" h-[calc(100vh-270px)] max-h-[calc(100vh-270px)]  overflow-auto">
-            <aside className="  w-full flex flex-col gap-3 p-3">
+            <aside className="  w-full flex flex-col gap-3  ">
               <div
                 ref={chatRef}
-                className="flex flex-col gap-4   overflow-y-auto scrollbar-hide bg-white/4 border border-white/6 p-3 rounded-12"
+                className="flex flex-col gap-2   overflow-y-auto scrollbar-hide bg-white/4 border border-white/6  p-1 rounded-12"
               >
                 {messages.map((msg, idx) => (
                   <div
                     key={idx}
-                    className={`   border border-[#E2E8F0] flex gap-2 items-center w-[85%] p-2 rounded-md text-[#1E293B] text-sm font-semibold ${
+                    className={`   border border-[#E2E8F0] flex gap-2 items-center w-[85%] py-2 px-3 rounded-md text-[#1E293B] text-sm font-semibold ${
                       msg.isUser
                         ? "flex-row-reverse bg-[#D1FAED]    ml-auto "
                         : "flex-row  bg-white   "
