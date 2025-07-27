@@ -49,17 +49,16 @@ export default function ChatBox() {
     setInput("");
 
     if (pendingStep !== null) {
-      handleBotStep(pendingStep + 1
-        // , input
-      );
+      handleBotStep(pendingStep + 1, input);
     } else {
       // Start bot process
       handleBotStep(0);
     }
   };
-  if(false){
-    setProjectName("")
-  }
+  // only for remove error.
+  // if(false){
+  //   setProjectName("")
+  // }
 
   const addBotMessage = (text: string) => {
     setMessages((prev) => [
@@ -146,7 +145,7 @@ export default function ChatBox() {
           <IoMdRefresh />
         </div>
         <div className="flex-1 p-2">
-          <div className="h-[420px]   overflow-auto">
+          <div className=" h-[calc(100vh-270px)] max-h-[calc(100vh-270px)]  overflow-auto">
             <aside className="  w-full flex flex-col gap-3 p-3">
               <div
                 ref={chatRef}
