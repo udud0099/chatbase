@@ -6,8 +6,8 @@ export default function SpecialLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className=" flex gap-8   topRoundBorder      ">
-      <div className="  w-[400px] block">
+    <section className=" flex gap-8   topRoundBorder     flex-col md:flex-row  ">
+      <div className="  md:w-[250px] lg:w-[400px] block ">
         <SideNav />
       </div>
       <div className="    heightAdg w-full flex justify-center    py-4 md:py-6 xl:py-8">

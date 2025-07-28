@@ -49,18 +49,16 @@ export default function ChatBox() {
     setInput("");
 
     if (pendingStep !== null) {
-      handleBotStep(pendingStep + 1
-        // , input
-      );
+      handleBotStep(pendingStep + 1, input);
     } else {
       // Start bot process
       handleBotStep(0);
     }
   };
   // only for remove error.
-  if(false){
-    setProjectName("")
-  }
+  // if(false){
+  //   setProjectName("")
+  // }
 
   const addBotMessage = (text: string) => {
     setMessages((prev) => [

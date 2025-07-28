@@ -19,7 +19,7 @@ export default function page() {
           <h1 className="mainH1 mb-4">Playground</h1>
         </div>
         <div className="w-full   h-[calc(100vh-170px)] overflow-y-auto border border-border rounded-md p-2">
-          <div className="flex gap-4 ">
+          <div className="flex gap-4 flex-col sm:flex-row ">
             <div className="flex-1">
               <div className="flex gap-2 justify-between items-center mb-4">
                 <p className="text-sm text-subText">Status</p>

@@ -26,7 +26,7 @@ export default function SideNav() {
   const getLinkClasses = (url: string) => {
     const isActive = pathname === url;
     return `
-      px-4 py-2 text-sm  border border-transparent flex gap-2 items-center w-full
+      whitespace-nowrap px-2 py-1 md:px-4 md:py-2 text-sm  border border-transparent flex gap-2  flex-nowrap  items-center  
       ${isActive ? "bg-[#F8FAFC] border border-[#E2E8F0]! rounded-md" : ""}
       hover:border hover:border-[#E2E8F0] hover:rounded-md hover:bg-[#F8FAFC] 
     `;
@@ -36,7 +36,7 @@ export default function SideNav() {
   return (
     <>
       <div className="p-4 md:p-6 xl:p-8">
-        <div className="border border-gray-200 rounded-md   p-1">
+        <div className="border border-gray-200 rounded-md p-1">
           <div className="w-full bg-activeBG p-2 flex justify-between ">
             <div>
               <h1 className="mainH2 text-lg">Retro Agent</h1>
@@ -45,21 +45,20 @@ export default function SideNav() {
               </span>
             </div>
             <div>
-              {" "}
               <HiArrowsUpDown />
             </div>
           </div>
           <div>
             <nav className="w-full py-3  flex justify-between      ">
               {/* Left: Logo + Navigation */}
-              <div className="flex flex-col gap-0.5  w-full  lg:flex">
+              <div className="flex    w-full  gap-0.5  md:h-auto h-[40px] sm:h-[50px]   overflow-x-auto overflow-y-hidden no-scrollbar flex-row md:flex-col">
                 {navItems.map((item: NavItem, index: number) => (
                   <Link
                     href={item.url}
                     key={index}
                     className={getLinkClasses(item.url)}
                   >
-                    <RiBox1Line className="w-4 h-4" />
+                    <RiBox1Line className="min-w-4 w-4 h-4" />
                     {item.label}
                   </Link>
                 ))}
